@@ -1,6 +1,7 @@
 {
   "type": "module",
   "scripts": {
+    "main": "tsx main.mts",
     "gen:type": "openapi-typescript ./openapi.json -o ./generated-types.d.ts"
   },
   "dependencies": {
@@ -11,6 +12,7 @@
     "@types/node": "^20.12.12",
     "biome": "^0.3.3",
     "openapi-typescript": "^6.7.5",
+    "tsx": "^4.10.3",
     "typescript": "^5.4.5"
   }
 }

@@ -36,6 +36,7 @@ export interface operations {
           query: {
             version: number;
           };
+          members: string[];
         };
       };
     };

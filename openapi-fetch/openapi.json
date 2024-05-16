@@ -33,9 +33,15 @@
                       }
                     },
                     "required": ["version"]
+                  },
+                  "members": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
                   }
                 },
-                "required": ["file", "name", "query"]
+                "required": ["file", "name", "query", "members"]
               }
             }
           },
