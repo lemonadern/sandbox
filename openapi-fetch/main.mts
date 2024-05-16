@@ -8,24 +8,48 @@ const { data, error } = await client.POST("/upload", {
     file: "file",
     name: "hello.txt",
     query: {
-      version: 2,
+      version: 1
     },
-    members: [
-      "Alice",
-      "Bob",
-    ],
+    members: ["a", "b", "c"],
   },
   bodySerializer: (body) => {
     const fd = new FormData();
     for (const name in body) {
       let value = body[name as keyof typeof body];
-      if (typeof value === 'object' && value !== null) {
+      if (typeof value === 'object' && value !== null && !(value instanceof File) && !(value instanceof Blob)) {
         value = JSON.stringify(value);
       }
       fd.append(name, value);
     }
     return fd;
   },
+  // bodySerializer: (body) => {
+  //   const fd = new FormData();
+
+  //   const appendFormData = (fd: FormData, data: unknown, parentKey = "") => {
+  //     if ( data && typeof data === "object" && !Array.isArray(data) &&
+  //       !(data instanceof File) && !(data instanceof Blob)
+  //     ) {
+  //       for (const key in data) {
+  //         appendFormData(
+  //           fd,
+  //           data[key as keyof typeof data],
+  //           parentKey ? `${parentKey}.${key}` : key,
+  //         );
+  //       }
+  //     } else if (Array.isArray(data)) {
+  //       for (const e of data) {
+  //         appendFormData(fd, e, parentKey);
+  //       }
+  //     } else {
+  //       fd.append(parentKey, data as string | Blob | File);
+  //     }
+    // };
+
+  //   appendFormData(fd, body);
+
+  //   return fd;
+  // },
 });
 
 console.log(data, error);
