@@ -16,11 +16,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary",
-                    "description": "The file to upload"
-                  },
                   "name": {
                     "type": "string",
                     "description": "The name of the file"
@@ -33,15 +28,9 @@
                       }
                     },
                     "required": ["version"]
-                  },
-                  "members": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
                   }
                 },
-                "required": ["file", "name", "query", "members"]
+                "required": [ "name", "query"]
               }
             }
           },

@@ -26,17 +26,11 @@ export interface operations {
     requestBody: {
       content: {
         "multipart/form-data": {
-          /**
-           * Format: binary
-           * @description The file to upload
-           */
-          file: string;
           /** @description The name of the file */
           name: string;
           query: {
             version: number;
           };
-          members: string[];
         };
       };
     };
