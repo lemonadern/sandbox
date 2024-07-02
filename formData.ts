@@ -6,7 +6,7 @@ const body = {
     },
 }
 
-const serializeToFormData = (body: any) => {
+const serializeToFormData = (body) => {
     const fd = new FormData();
     for (const name in body) {
         fd.append(name, body[name]);
@@ -25,7 +25,8 @@ const res = await fetch('https://echo-server.deno.dev/', {
 console.log(`Status: ${res.status}`)
 console.log(await res.text())
 
-export {}
+
+export type {};
 
 // command: 
 // deno run --allow-net formData.ts
